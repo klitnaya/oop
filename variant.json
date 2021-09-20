@@ -5,8 +5,12 @@
     "Triangle",
     "Square"
    ],
+  "containers":
+  [
+    "TBinaryTree",
+    "TQueue"
+  ]
   "finished_labs": {
-     "lab1": 
-"lab_1"
+     "lab1": "lab_1"
   }
 }
