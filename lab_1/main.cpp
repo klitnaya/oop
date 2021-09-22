@@ -1,5 +1,8 @@
 #include <iostream>
-#include <triangle.h>
+#include "point.h"
+#include "octagon.h"
+#include "triangle.h"
+#include "square.h"
 
 using namespace std;
 
