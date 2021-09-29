@@ -8,18 +8,18 @@
 
 class Square : public Figure {
 public:
-    Square();
-    Square (const Point& a, const Point& b, const Point& c, const Point& d);
-    Square(std::istream &is);
-    Square(const Square& other);
+    Square(std::istream &InputStream);
 
     virtual ~Square();
 
-    void Print();
-    double Area2();
+    void Print(std::ostream &os);
+    double Area();
 
 private:
-    std::vector<Point> cords_;
+    Point a;
+    Point b;
+    Point c;
+    Point d;
 };
 
 #endif // SQUARE_H

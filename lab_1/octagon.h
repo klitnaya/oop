@@ -1,26 +1,29 @@
 #ifndef OCTAGON_H
 #define OCTAGON_H
 
-#include <figure.h>
-#include <point.h>
+#include "figure.h"
+#include "point.h"
 #include <iostream>
 
 
 class Octagon : public Figure {
-public:
-    Octagon();
-    Octagon (const Point& a, const Point& b, const Point& c, const Point& d, const Point& e, const Point& f, const Point& g, const Point& h);
-    Octagon(std::istream &is);
-    Octagon(const Octagon& other);
-
+  public:
+    Octagon(std::istream &InputStream);
+ 
     virtual ~Octagon();
 
-    void Print();
+    void Print(std::ostream &OutputStream);
     double Area();
-    double Area2();
 
-private:
-    std::vector<Pont> cords_;
+  private:
+    Point a;
+    Point b;
+    Point c;
+    Point d;
+    Point e;
+    Point f;
+    Point g;
+    Point h;
 };
 
 #endif // OCTAGON_H

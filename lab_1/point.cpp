@@ -16,6 +16,14 @@ double Point::dist(Point& other) {
   return std::sqrt(dx*dx + dy*dy);
 }
 
+double Point::X(){
+   return x_;
+};
+
+double Point::Y(){
+   return y_;
+};
+
 std::istream& operator>>(std::istream& is, Point& p) {
   is >> p.x_ >> p.y_;
   return is;

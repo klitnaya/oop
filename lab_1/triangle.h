@@ -6,12 +6,11 @@
 #include <iostream>
 #include <point.h>
 #include <vector>
+//#include "figure.h"
 
 class Triangle : public Figure {
 public:
-    Triangle();
-    Triangle(const Point& a, const Point& b, const Point& c);
-    Triangle(std::istream &is);
+    Triangle(std::istream &InputStream);
     Triangle(const Triangle& other);
 
     virtual ~Triangle();
@@ -19,10 +18,11 @@ public:
     size_t VertexesNumber();
     void Print();
     double Area();
-    double Area2();
-
+   
 private:
-    std::vector<Point> cords_;
+    Point a;
+    Point b;
+    Point c;
 };
 
 #endif // TRIANGLE_H
