@@ -1,16 +1,15 @@
 {
-  "variant": 8,
-  "figures": [
-    "Octagon",
-    "Triangle",
-    "Square"
-   ],
-  "containers":
-  [
-    "TBinaryTree",
-    "TQueue"
-  ]
-  "finished_labs": {
-     "lab1": "lab_1"
-  }
+	"variant": 8,
+    "figures": [
+		"Octagon",
+		"Triangle",
+		"Square"
+	],
+	"containers": [
+		"TQueue",
+		"TLinkedList"
+	],
+	"finished_labs": {
+		"lab1": "lab1"
+	}
 }
