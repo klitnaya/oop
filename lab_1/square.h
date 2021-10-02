@@ -1,25 +1,19 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 
-#include <figure.h>
-#include <point.h>
-#include <iostream>
-
+#include "figure.h"
 
 class Square : public Figure {
 public:
-    Square(std::istream &InputStream);
+    Square(std::istream& is);
 
+    size_t VertexesNumber();
+    double Area();
+    void Print(std::ostream& os);
     virtual ~Square();
 
-    void Print(std::ostream &os);
-    double Area();
-
 private:
-    Point a;
-    Point b;
-    Point c;
-    Point d;
+    Point point_a, point_b, point_c, point_d; //ïåðâàÿ âåðøèíà - ëåâàÿ íèæíÿÿ, äàëåå - ïî ÷àñîâîé ñòðåëêå
 };
 
 #endif // SQUARE_H

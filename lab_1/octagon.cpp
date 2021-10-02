@@ -1,46 +1,43 @@
 #include "octagon.h"
-#include "point.h"
 #include <cmath>
 
-Octagon::Octagon(std:: isream &InputStream)
-
- {
-  //cords_.assign(8, Point());
-  InputStream >> a;
-  InputStream >> b;
-  InputStream >> c;
-  InputStream >> d;
-  InputStream >> e;
-  InputStream >> f;
-  InputStream >> g;
-  InputStream >> h;
-  std::cout << " Octagon was created" << std::endl;
-}
-
-size_t VertexesNumber(){
-  size_t num = 8;
-  return num;
+Octagon::Octagon(std::istream& is) {
+    std::cout << "Enter the octagon's vertexes:" << std::endl;
+    is >> point_a;
+    is >> point_b;
+    is >> point_c;
+    is >> point_d;
+    is >> point_e;
+    is >> point_f;
+    is >> point_g;
+    is >> point_h;
+    std::cout << "The octagon is created" << std::endl;
 }
 
 void Octagon::Print(std::ostream& os) {
-    os << a << ", ";
-    os << b << ", ";
-    os << c << ", ";
-    os << d << ", ";
-    os << e << ", ";
-    os << f << ", ";
-    os << g << ", ";
-    os << h << std::endl;
+    std::cout << "Octagon: ";
+    std::cout << point_a << ", ";
+    std::cout << point_b << ", ";
+    std::cout << point_c << ", ";
+    std::cout << point_d << ", ";
+    std::cout << point_e << ", ";
+    std::cout << point_f << ", ";
+    std::cout << point_g << ", ";
+    std::cout << point_h << std::endl;
 }
 
+size_t Octagon::VertexesNumber() {
+    size_t number = 8;
+    return number;
+}
 
 double Octagon::Area() {
-   double q = abs(a.X() * b.Y() + b.X() * c.Y() + c.X() * d.Y() + d.X() * e.Y() + e.X() * f.Y() + f.X() * g.Y() + g.X() * h.Y() + h.X() * a.Y() - b.X() * a.Y() - c.X() * b.Y() - d.X() * c.Y() - e.X() * d.Y() - f.X() * e.Y() - g.X() * f.Y() - h.X() * g.Y() - a.X() * h.Y());
+   double q = abs(point_a.X() * point_b.Y() + point_b.X() * point_c.Y() + poiny_c.X() * point_d.Y() + point_d.X() * point_e.Y() + point_e.X() * point_f.Y() + point_f.X() * point_g.Y() + point_g.X() * point_h.Y() + point_h.X() * point_a.Y() - point_b.X() * point_a.Y() - point_c.X() * point_b.Y() - point_d.X() * point_c.Y() - point_e.X() * point_d.Y() - point_f.X() * point_e.Y() - point_g.X() * point_f.Y() - point_h.X() * point_g.Y() - point_a.X() * point_h.Y());
    double s = q / 2;
    return s;
-   }
 
+}
 
 Octagon::~Octagon() {
-    std::cout << "Octagon deleted" << std::endl;
+    std::cout << "The octagon is deleted" << std::endl;
 }

@@ -1,44 +1,40 @@
 #include "square.h"
-#include "point.h"
-#include <cmath>
 
-Square::Square() {
-  cords_.assign(4, Point());
-  std::cout << "Default square created" << std::endl;
+Square::Square(std::istream& is) {
+    std::cout << "Enter the square's vertexes:" << std::endl;
+    is >> point_a;
+    is >> point_b;
+    is >> point_c;
+    is >> point_d;
+    std::cout << "The square is created" << std::endl;
 }
 
-
-Square::Square(std::istream &InputStream) {
-  InputStream >> a;
-  InputStream >> b;
-  InputStream >> c;
-  InputStream >> d;
-  std::cout << "Squere created" << std::endl;
+void Square::Print(std::ostream& os) {
+    std::cout << "Square: ";
+    std::cout << point_a << ", ";
+    std::cout << point_b << ", ";
+    std::cout << point_c << ", ";
+    std::cout << point_d << std::endl;
 }
 
-
-size_t VertexesNumber(){
-  size_t num = 4;
-  return num;
-}
-
-
-void Square::Print(std::osteam& os) {
-    os << a << ", ";
-    os << b << ", ";
-    os << c << ", ";
-    os << d << std::endl;
+size_t Square::VertexesNumber() {
+    size_t number = 4;
+    return number;
 }
 
 double Square::Area() {
-    double len_a = a.dish(b);
-    double len_b = b.dish(c);
-    double p = len_a * len_b;
-    return p;
+    try {
+        double len_a = point_b.dist(point_a);
+        if (len_a < 0) {
+            throw "The length of the side is < 0";
+        }
+        return pow(len_a, 2);
+    }
+    catch (const char* exception) {
+        std::cerr << "Error: " << exception << std::endl;
+    }
 }
 
-
-
 Square::~Square() {
-    std::cout << "Square deleted" << std::endl;
+    std::cout << "The square is deleted" << std::endl;
 }

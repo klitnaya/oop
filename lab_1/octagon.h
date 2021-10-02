@@ -2,28 +2,18 @@
 #define OCTAGON_H
 
 #include "figure.h"
-#include "point.h"
-#include <iostream>
 
+class Octagon : public Figure{
+public:
+    Octagon(std::istream& is);
 
-class Octagon : public Figure {
-  public:
-    Octagon(std::istream &InputStream);
- 
+    size_t VertexesNumber();
+    double Area();
+    void Print(std::ostream& os);
     virtual ~Octagon();
 
-    void Print(std::ostream &OutputStream);
-    double Area();
-
-  private:
-    Point a;
-    Point b;
-    Point c;
-    Point d;
-    Point e;
-    Point f;
-    Point g;
-    Point h;
+private:
+    Point point_a, point_b, point_c, point_d, point_e, point_f, point_g, point_h, ;
 };
 
 #endif // OCTAGON_H
