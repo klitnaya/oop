@@ -6,10 +6,11 @@
 		"Square"
 	],
 	"containers": [
-		"TQueue",
+		"TLinkedList",
 		"TLinkedList"
 	],
 	"finished_labs": {
 		"lab1": "lab_1"
+		"lab2": "laba2"
 	}
 }
