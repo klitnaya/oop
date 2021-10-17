@@ -9,6 +9,7 @@ public:
     Octagon(std::istream& is);
     Octagon(Point point_a, Point point_b, Point point_c, Point point_d, Point point_e, Point point_f, Point point_g, Point point_h );
     size_t VertexesNumber();
+    Octagon(Octagon &other);
     double Area();
     void Print(std::ostream& os);
     virtual ~Octagon();
