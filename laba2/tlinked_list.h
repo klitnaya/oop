@@ -17,7 +17,7 @@ public:
  void RemoveLast();
  void RemoveFirst();
  void Insert(Octagon &&octagon, size_t position);
- void Remove(int a);
+ void Remove(size_t position);
  void Clear();
  friend std::ostream& operator<<(std::ostream& os, TLinkedList& list);
  ~TLinkedList();
