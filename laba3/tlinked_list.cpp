@@ -3,8 +3,8 @@
  
 TLinkedList::TLinkedList() {
   size_of_list = 0;
-  HListItem* first;
-  HListItem* last;
+  std::shared_ptr<HListItem> first;
+  std::shared_ptr<HListItem> last;
   std::cout << "Octagon List created" << std::endl; 
 }
 size_t TLinkedList::Length() {
@@ -17,7 +17,7 @@ void TLinkedList::Empty() {
     std::cout << "Octagon List is not empty" << std::endl;
   }
 }
-std::shared_ptr<Octagon>* TLinkedList::GetItem(size_t idx){
+std::shared_ptr<Octagon>& TLinkedList::GetItem(size_t idx){
   int k = 0;
   HListItem* obj = front;
   while (k != idx){
@@ -26,10 +26,10 @@ std::shared_ptr<Octagon>* TLinkedList::GetItem(size_t idx){
   }
   return &obj->hexagon;
 }
-std::shared_ptr<HListItem>* TLinkedList::First() {
+std::shared_ptr<HListItem>& TLinkedList::First() {
   return front;
 }
-std::shared_ptr<HListItem>* TLinkedList::Last() {
+std::shared_ptr<HListItem>& TLinkedList::Last() {
   return back;
 }
 void TLinkedList::InsertLast(const std::shared_ptr<Octagon> &&octagon) {
