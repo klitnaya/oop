@@ -1,13 +1,14 @@
 #include<iostream>
 #include "octagon.h"
+#include<memery>
 
 class  HListItem {
 public:
-     HListItem(const Octagon& oc);
-    friend std::ostream& operator<<(std::ostream& os,  HListItem& obj);
+     HListItem(const std::shared_ptr<Octagon>& oc);
+    friend std::ostream& operator<<(std::ostream& os,  std::shared_ptr<HListItem>& obj);
     ~ HListItem();
-    HListItem* next;
-    Octagon octagon;
+    std::shared_ptr<HListItem>* next;
+    std::shared_ptr<Octagon> octagon;
     
 };
 
