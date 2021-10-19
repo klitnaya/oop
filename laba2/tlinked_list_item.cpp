@@ -7,7 +7,7 @@
     this->next = nullptr;
   
 } 
-std::ostream& operator<<(std::ostream& os,  HListItem obj){
+std::ostream& operator<<(std::ostream& os,  HListItem& obj){
   os << "["<<obj.octagon << "]"<<std::endl;
   return os;
 }
