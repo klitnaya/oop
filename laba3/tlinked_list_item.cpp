@@ -2,8 +2,8 @@
 #include "octagon.h"
 #include <iostream>
 
- HListItem:: HListItem(std::shared_ptr<Octagon>& oc) {
-    this->octagon = oc;
+ HListItem:: HListItem(const std::shared_ptr<Octagon>& octagon) {
+    this->octagon = octagon;
     this->next = nullptr;
   
 } 
