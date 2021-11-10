@@ -1,17 +1,23 @@
 #include <iostream>
-#include "tlinkedlist.h"
+#include "tlinked_list.h"
  
 TLinkedList::TLinkedList() {
   size_of_list = 0;
-  std::shared_ptr<HListItem> first;
-  std::shared_ptr<HListItem> last;
+  std::shared_ptr<HListItem> front;
+  std::shared_ptr<HListItem> back;
   std::cout << "Octagon List created" << std::endl; 
 }
-size_t TLinkedList::Length() {
-  return size_list;
+
+TLinkedList::TLinkedList(const std::shared_ptr<TLinkedList> &other){
+  front = other->front;
+  back = other->back;
 }
-void TLinkedList::Empty() {
-  if (size_list == 0){
+
+size_t TLinkedList::Length() {
+  return size_of_list;
+}
+bool TLinkedList::Empty() {
+  if (size_of_list == 0){
     std::cout << "Octagon List is empty" << std::endl;
   } else {
     std::cout << "Octagon List is not empty" << std::endl;
@@ -19,31 +25,31 @@ void TLinkedList::Empty() {
 }
 std::shared_ptr<Octagon>& TLinkedList::GetItem(size_t idx){
   int k = 0;
-  HListItem* obj = front;
+  std::shared_ptr<HListItem> obj = front;
   while (k != idx){
     k++;
     obj = obj->next;
   }
-  return &obj->hexagon;
+  return obj->octagon;
 }
 std::shared_ptr<HListItem>& TLinkedList::First() {
-  return front;
+  return front->octagon;
 }
 std::shared_ptr<HListItem>& TLinkedList::Last() {
-  return back;
+  return back->octagon;
 }
 void TLinkedList::InsertLast(const std::shared_ptr<Octagon> &&octagon) {
   std::shared_ptr<HListItem> obj (new HListItem(octagon));
-  if(size_list == 0) {
+  if(size_of_list == 0) {
     front = obj;
     back = obj;
-    size_list++;
+    size_of_list++;
     return;
   }
   back->next = obj;
   back = obj;
   obj->next = nullptr;
-  size_list++;
+  size_of_list++;
 }
 void TLinkedList::RemoveLast() {
   if (size_of_list == 0) {
@@ -54,7 +60,7 @@ void TLinkedList::RemoveLast() {
       size_of_list--;
       return;
     }
-    std::shared_ptr<HListItem>* prev_del = front;
+    std::shared_ptr<HListItem> prev_del = front;
     while (prev_del->next != back) {
       prev_del = prev_del->next;
     }
@@ -149,7 +155,7 @@ void TLinkedList::Clear() {
     size_of_list = 0;
   } 
   size_of_list = 0;
-  std::shared_ptr<HListItem> front;
+  std::shared_ptr<HListItem>* front;
   std::shared_ptr<HListItem> back;
 }
 std::ostream& operator<<(std::ostream& os, TLinkedList& hl) {
