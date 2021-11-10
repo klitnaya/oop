@@ -1,5 +1,6 @@
 #ifdef TLINKED_LIST_H
 #define TLINKED_LIST_H
+#include <iostream>
 #include "tlinked_list_item.h"
 #include"octagon.h"
 
@@ -7,12 +8,13 @@ class TLinkedList {
 public:
  TLinkedList();
  int size_of_list;
- void Lenght();
- void empty();
- std::shared_ptr<TLinkedList>& First();
- std::shared_ptr<TLinkedList>& Last();
+ size_t Lenght();
+ bool Empty();
+ std::shared_ptr<Octagon>& First();
+ std::shared_ptr<Octagon>& Last();
  std::shared_ptr<Octagon>& GetItem(size_t idx);
- void Empty();
+ //void Empty();
+ TLinkedList(const std::shared_ptr<TLinkedList> &other);
  void InsertFirst(const std::shared_ptr<Octagon> &&octagon);
  void InsertLast(const std::shared_ptr<Octagon> &&octagon);
  void RemoveLast();
