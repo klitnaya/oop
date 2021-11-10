@@ -3,21 +3,28 @@
  
 TLinkedList::TLinkedList() {
   size_of_list = 0;
-  HListItem* first;
-  HListItem* last;
+  HListItem* front;
+  HListItem* back;
   std::cout << "Octagon List created" << std::endl; 
 }
-size_t TLinkedList::Length() {
-  return size_list;
+
+TLinkedList::TLinkedList(const TLinkedList& other){
+  front = other.front;
+  back = other.back;
 }
-void TLinkedList::Empty() {
-  if (size_list == 0){
+
+
+size_t TLinkedList::Length() {
+  return size_of_list;
+}
+bool TLinkedList::Empty() {
+  if (size_of_list == 0){
     std::cout << "Octagon List is empty" << std::endl;
   } else {
     std::cout << "Octagon List is not empty" << std::endl;
   }
 }
-Octagon* TLinkedList::GetItem(size_t idx){
+Octagon& TLinkedList::GetItem(size_t idx){
   int k = 0;
   HListItem* obj = front;
   while (k != idx){
@@ -26,24 +33,24 @@ Octagon* TLinkedList::GetItem(size_t idx){
   }
   return &obj->hexagon;
 }
-HListItem* TLinkedList::First() {
-  return front;
+HListItem& TLinkedList::First() {
+  return front->octagon;
 }
-HListItem* TLinkedList::Last() {
-  return back;
+HListItem& TLinkedList::Last() {
+  return back->octagon;
 }
 void TLinkedList::InsertLast(const Octagon &&octagon) {
   HListItem* obj = new HListItem(octagon);
-  if(size_list == 0) {
+  if(size_of_list == 0) {
     front = obj;
     back = obj;
-    size_list++;
+    size_of_list++;
     return;
   }
   back->next = obj;
   back = obj;
   obj->next = nullptr;
-  size_list++;
+  size_of_list++;
 }
 void TLinkedList::RemoveLast() {
   if (size_of_list == 0) {
