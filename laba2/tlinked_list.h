@@ -12,6 +12,7 @@ public:
  bool Empty();
  TLinkedList& First();
  TLinkedList& Last();
+ TLinkedList(const TLinkedList& other);
  Octagon& GetItem(size_t idx);
  //void Empty();
  void InsertFirst(const Octagon &&octagon);
