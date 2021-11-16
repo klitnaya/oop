@@ -2,7 +2,7 @@
 #include "octagon.h"
 #include <iostream>
 
- HListItem:: HListItem(Octagon& octagon) {
+ HListItem:: HListItem(const Octagon& octagon) {
     this->octagon = octagon;
     this->next = nullptr;
   
