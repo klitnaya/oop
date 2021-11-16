@@ -12,18 +12,14 @@ TLinkedList::TLinkedList(const TLinkedList& other){
   front = other.front;
   back = other.back;
 }
-
+bool TLinkedList::Empty() {
+  return size_of_list;
+}
 
 size_t TLinkedList::Length() {
   return size_of_list;
 }
-bool TLinkedList::Empty() {
-  if (size_of_list == 0){
-    std::cout << "Octagon List is empty" << std::endl;
-  } else {
-    std::cout << "Octagon List is not empty" << std::endl;
-  }
-}
+
 Octagon& TLinkedList::GetItem(size_t idx){
   int k = 0;
   HListItem* obj = front;
@@ -31,7 +27,7 @@ Octagon& TLinkedList::GetItem(size_t idx){
     k++;
     obj = obj->next;
   }
-  return &obj->hexagon;
+  return obj->hexagon;
 }
 HListItem& TLinkedList::First() {
   return front->octagon;
@@ -159,12 +155,12 @@ void TLinkedList::Clear() {
   HListItem* front;
   HListItem* back;
 }
-std::ostream& operator<<(std::ostream& os, TLinkedList& hl) {
+std::ostream& operator<<(std::ostream& os, TLinkedList& ol) {
   if (hl.size_of_list == 0) {
     os << "The octagon list is empty, so there is nothing to output" << std::endl;
   } else {
     os << "Print Octagon List" << std::endl;
-    HListItem* obj = hl.front;
+    HListItem* obj = ol.front;
     while(obj != nullptr) {
       if (obj->next != nullptr) {
         os << obj->octagon << " " << "," << " ";
