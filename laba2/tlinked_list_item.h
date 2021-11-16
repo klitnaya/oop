@@ -5,7 +5,7 @@ class  HListItem {
 public:
      HListItem(const Octagon& octagon);
     friend std::ostream& operator<<(std::ostream& os,  HListItem& obj);
-    ~ HListItem();
+    ~HListItem();
     HListItem* next;
     Octagon octagon;
     
