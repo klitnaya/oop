@@ -1,7 +1,7 @@
 #include <iostream>
-#include "triangle.h"
+#include "tlinked_list.h"
+
 #include "octagon.h"
-#include "square.h"
 
 int main(){
   TLinkedList tlinkedlist;
@@ -16,7 +16,8 @@ int main(){
   tlinkedlist.RemoveFirst();
   tlinkedlist.InsertFirst(std::shared_ptr<Octagon>(new Octagon(Point(2,3),Point(3,4),Point(4,5),Point(5,6),Point(6,7),Point(7,8), Point(8,9),Point(9,10))));
   tlinkedlist.Insert(std::shared_ptr<Octagon>(new Octagon(Point(1,1),Point(2,3),Point(3,4),Point(5,6),Point(7,8),Point(9,10), Point(11,12),Point(13,18))),2);
-  tlinkedlist.Empty();
+  
+  std::cout << tlinkedlist.Empty() << std::endl;
   std::cout << tlinkedlist.First() << std::endl;
   std::cout << tlinkedlist.Last() << std::endl;
   std::cout << tlinkedlist.GetItem(2) << std::endl;
