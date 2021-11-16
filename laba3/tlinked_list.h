@@ -25,7 +25,7 @@ public:
  friend std::ostream& operator<<(std::ostream& os, TLinkedList& list);
  ~TLinkedList();
 private:
- std::shared_ptr<TLinkedList> front;
- std::shared_ptr<TLinkedList> back;
+ std::shared_ptr<HListItem> front;
+ std::shared_ptr<HListItem> back;
 };
 #endif //TLINKED_LIST_H
