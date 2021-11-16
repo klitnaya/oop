@@ -11,7 +11,7 @@ public:
     size_t VertexesNumber();
     Octagon(Octagon &other);
     double Area();
-    void Print(std::ostream& os);
+    //void Print(std::ostream& os);
     virtual ~Octagon();
     Octagon& operator=(const Octagon& other);
     Octagon& operator==(const Octagon& other);
