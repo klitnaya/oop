@@ -17,7 +17,11 @@ Octagon::Octagon(std::istream& is) {
  //   std::cout << "The octagon is created" << std::endl;
 }
 
-void Octagon::Print(std::ostream& os) {
+Octagon::Octagon(Point point_a1, Point point_b1,Point point_c1, Point point_d1, Point point_e1, Point point_f1, Point point_g1, Point point_h1 ): point_a(point_a1),point_b(point_b1),point_c(point_c1),point_d(point_d1),point_e(point_e1),point_f(point_f1), point_g(point_g1),point_h(point_h1) {
+}
+
+
+/*void Octagon::Print(std::ostream& os) {
     std::cout << "Octagon: ";
     std::cout << point_a << ", ";
     std::cout << point_b << ", ";
@@ -28,7 +32,7 @@ void Octagon::Print(std::ostream& os) {
     std::cout << point_g << ", ";
     std::cout << point_h << std::endl;
 }
-
+*/
 size_t Octagon::VertexesNumber() {
     size_t number = 8;
     return number;
