@@ -1,16 +1,19 @@
 {
-	"variant": 9,
-    "figures": [
-		"Octagon",
-		"Triangle",
-		"Square"
-	],
-	"containers": [
-		"TLinkedList",
-		"TLinkedList"
-	],
-	"finished_labs": {
-		"lab1": "lab_1"
-		"lab2": "laba2"
-	}
+  "variant": 8,
+  "figures": [
+      "Octagon",
+      "Triangle",
+      "Square"
+  ],
+  "containers": [
+    "TLinkedList",
+    "TLinkedList"
+  ],
+  "finished_labs": {
+    "lab1": "lab_1",
+    "lab2": "laba2",
+    "lab3": "laba3",
+    "lab4": "laba4",
+    "lab5": "laba5"
+  }
 }
