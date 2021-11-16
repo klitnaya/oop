@@ -1,6 +1,8 @@
 #ifdef TLINKED_LIST_H
 #define TLINKED_LIST_H
+#include <iostream>
 #include "tlinked_list_item.h"
+#include "octagon.h"
 
 class TLinkedList {
 public:
