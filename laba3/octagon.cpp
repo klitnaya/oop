@@ -17,7 +17,11 @@ Octagon::Octagon(std::istream& is) {
  //   std::cout << "The octagon is created" << std::endl;
 }
 
-void Octagon::Print(std::ostream& os) {
+Octagon::Octagon(Point point_a1, Point point_b1,Point point_c1, Point point_d1, Point point_e1, Point point_f1, Point point_g1, Point point_h1 ): point_a(point_a1),point_b(point_b1),point_c(point_c1),point_d(point_d1),point_e(point_e1),point_f(point_f1), point_g(point_g1),point_h(point_h1) {
+}
+
+
+/*void Octagon::Print(std::ostream& os) {
     std::cout << "Octagon: ";
     std::cout << point_a << ", ";
     std::cout << point_b << ", ";
@@ -28,7 +32,7 @@ void Octagon::Print(std::ostream& os) {
     std::cout << point_g << ", ";
     std::cout << point_h << std::endl;
 }
-
+*/
 size_t Octagon::VertexesNumber() {
     size_t number = 8;
     return number;
@@ -55,11 +59,6 @@ Octagon& Octagon::operator == (const Octagon& other) {
   } 
 } 
 
-Octagon::Octagon(std::shared_ptr<Octagon>&other ):Octagon(other->point_a, other->point_b,  other->point_c, other->point_d,  other->point_e, other->point_f, other->point_g, other->point_h){
-}
-
-
-
 double Octagon::Area() {
    double q = abs(point_a.X() * point_b.Y() + point_b.X() * point_c.Y() + poiny_c.X() * point_d.Y() + point_d.X() * point_e.Y() + point_e.X() * point_f.Y() + point_f.X() * point_g.Y() + point_g.X() * point_h.Y() + point_h.X() * point_a.Y() - point_b.X() * point_a.Y() - point_c.X() * point_b.Y() - point_d.X() * point_c.Y() - point_e.X() * point_d.Y() - point_f.X() * point_e.Y() - point_g.X() * point_f.Y() - point_h.X() * point_g.Y() - point_a.X() * point_h.Y());
    double s = q / 2;
@@ -67,13 +66,10 @@ double Octagon::Area() {
 
 }
 
-Octagon::Octagon(Point point_a1, Point point_b1,Point point_c1, Point point_d1, Point point_e1, Point point_f1, Point point_g1, point_h1): point_a(point_a1),point_b(point_b1),point_c(point_c1),point_d(point_d1),point_e(point_e1),point_f(point_f1),point_g(point_g1), point_h(point_h1) {
-}
-
 Octagon::~Octagon() {
 }
 
-std::ostream& operator<<(std::ostream& os,std::shared_ptr<Octagon>& p) {
-  os << p->point_a << p->point_b << p->point_c << p->point_d << p->point_e << p->point_f<<p->point_g<<p->point_h;
+std::ostream& operator<<(std::ostream& os, Octagon& p) {
+  os << p.point_a << p.point_b << p.point_c << p.point_d << p.point_e << p.point_f<<p.point_g<<p.point_h;
   return os;
 }
