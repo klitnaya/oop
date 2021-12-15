@@ -6,11 +6,11 @@ class Money {
 public:
     Money();
     Money(std::istream &is);
-    Money(unsigned long long rub, unsigned char cop);
-    int operator +(Money& a);
-    int operator -(Money& a);
-    int operator *(Money& a);
-    int operator /(Money& a);
+    Money(unsigned long long rub, unsigned long long cop);
+    Money operator +(Money& a);
+    Money operator -(Money& a);
+    Money operator *(Money& a);
+    Money operator /(Money& a);
     Money operator ++();
     Money operator --();
     bool operator ==(const Money& other);
@@ -18,7 +18,7 @@ public:
     ~Money();
 private:
     unsigned long long rub;
-    unsigned char cop;
+    unsigned long long cop;
 };
 
 #endif // MONEY_H
