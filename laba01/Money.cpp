@@ -12,7 +12,7 @@ Money::Money(std::istream &is){
     is >> cop;
 }
 
-Money::Money(int first, int second){
+Money::Money(unsigned long long first, unsigned char second){
     rub = first;
     cop = second;
 }
@@ -39,7 +39,7 @@ Money Money::operator ++(){
     return *this;
 }
 
-Modulo Modulo::operator --(){
+Modulo Money::operator --(){
     this->cop--;
     this->rub--;
     return *this;
@@ -50,7 +50,7 @@ std::ostream& operator<<(std::ostream& os,const Money& a){
     return os;
 }
 
-bool Modulo::operator==(const Money& other){
+bool Money::operator==(const Money& other){
     return this->cop == other.cop && this->rub == other.rub;
 }
 
