@@ -12,25 +12,33 @@ Money::Money(std::istream &is){
     is >> cop;
 }
 
-Money::Money(unsigned long long first, unsigned char second){
+Money::Money(unsigned long long first, unsigned long long second){
     rub = first;
     cop = second;
 }
 
-int Money::operator +(Money& a){
-    return this->rub%this->cop + a.rub%a.cop;
+Money Money::operator +(Money& a){
+    this->rub = this->rub + a.rub;
+    this->cop += a.cop;
+    return *this;//->rub%this->cop + a.rub%a.cop;
 }
 
-int Money::operator -(Money& a){
-    return this->rub%this->cop - a.rub%a.cop;
+Money Money::operator -(Money& a){
+    this->rub = this->rub - a.rub;
+    this->cop -= a.cop;
+    return *this;//->rub%this->cop - a.rub%a.cop;
 }
 
-int Money::operator *(Money& a){
-    return (this->rub%this->cop) * (a.rub%a.cop);
+Money Money::operator *(Money& a){
+    this->rub = this->rub * a.rub;
+    this->cop *= a.cop;
+    return *this;//(this->rub%this->cop) * (a.rub%a.cop);
 }
 
-int Money::operator /(Money& a){
-    return (this->rub%this->cop) / (a.rub%a.cop);
+Money Money::operator /(Money& a){
+    this->rub = this->rub / a.rub;
+    this->cop /= a.cop;
+    return *this;//(this->rub%this->cop) / (a.rub%a.cop);
 }
 
 Money Money::operator ++(){
@@ -39,14 +47,14 @@ Money Money::operator ++(){
     return *this;
 }
 
-Modulo Money::operator --(){
+Money Money::operator --(){
     this->cop--;
     this->rub--;
     return *this;
 }
 
 std::ostream& operator<<(std::ostream& os,const Money& a){
-    os << a.rub << " " << a.cop << std::endl;
+    os << a.rub << "," << a.cop << std::endl;
     return os;
 }
 
