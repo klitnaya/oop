@@ -1,4 +1,4 @@
-ifndef FIGURE_H
+#ifndef FIGURE_H
 #define FIGURE_H
 
 #include "point.h"
