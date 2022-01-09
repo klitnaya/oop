@@ -1,4 +1,5 @@
 #include "octagon.h"
+#include <iostream>
 #include <cmath>
 
 Octagon::Octagon(): a(0,0),b(0,0),c(0,0),d(0,0),e(0,0),f(0,0), g(0,0), h(0,0) {
