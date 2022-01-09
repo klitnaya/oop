@@ -2,16 +2,15 @@
 #include "octagon.h"
 #include <iostream>
 
- HListItem:: HListItem(const Octagon& octagon) {
-    this->octagon = octagon;
-    this->next = nullptr;
-  
-} 
-std::ostream& operator<<(std::ostream& os,  HListItem& obj){
-  os << "["<<obj.octagon << "]"<<std::endl;
+HListItem::HListItem(const Octagon &octagon) {
+  this->octagon = octagon;
+  this->next = nullptr;
+}
+std::ostream& operator<<(std::ostream& os,HListItem& obj) {
+  os << "[" << obj.octagon << "]" << std::endl;
   return os;
 }
- HListItem::~ HListItem(){
+HListItem::~HListItem() {
 }
 
 
