@@ -18,7 +18,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, Octagon& p);
 
 private:
-    Point point_a, point_b, point_c, point_d, point_e, point_f, point_g, point_h, ;
+    Point point_a, point_b, point_c, point_d, point_e, point_f, point_g, point_h ;
 };
 
 #endif // OCTAGON_H
