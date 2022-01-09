@@ -7,12 +7,10 @@ TLinkedList::TLinkedList() {
   std::shared_ptr<HListItem> back;
   std::cout << "Octagon List created" << std::endl; 
 }
-
 TLinkedList::TLinkedList(const std::shared_ptr<TLinkedList> &other){
   front = other->front;
   back = other->back;
 }
-
 size_t TLinkedList::Length() {
   return size_of_list;
 }
@@ -61,13 +59,12 @@ void TLinkedList::RemoveLast() {
       prev_del = prev_del->next;
     }
     prev_del->next = nullptr;
-    //delete back;
     back = prev_del;
     size_of_list--;
     } 
 }
-void TLinkedList::InsertFirst(const td::shared_ptr<Octagon> &&octagon) {
-    std::shared_ptr<HListItem> obj ( new HListItem(octagon));
+void TLinkedList::InsertFirst(const std::shared_ptr<Octagon> &&octagon) {
+    std::shared_ptr<HListItem> obj(new HListItem(octagon));
     if(size_of_list == 0) {
       front = obj;
       back = obj;
@@ -83,7 +80,6 @@ void TLinkedList::RemoveFirst() {
     } else {
     std::shared_ptr<HListItem> del = front;
     front = del->next;
-    //delete del;
     size_of_list--;
     }
 }
@@ -93,7 +89,7 @@ void TLinkedList::Insert(const std::shared_ptr<Octagon> &&octagon,size_t positio
   } else if (position > size_of_list) {
     std::cout << " Position > size_of_list" << std::endl;
   } else {
-    std::shared_ptr<HListItem> obj ( new HListItem(octagon));
+    std::shared_ptr<HListItem> obj (new HListItem(octagon));
     if (position == 0) {
       front = obj;
       back = obj;
@@ -113,7 +109,7 @@ void TLinkedList::Insert(const std::shared_ptr<Octagon> &&octagon,size_t positio
   }
 }
 void TLinkedList::Remove(size_t position) {
-  if ( position > size_of_list ) {
+  if (position > size_of_list ) {
     std:: cout << "Position " << position << " > " << "size " << size_of_list << " Not correct erase" << std::endl;
   } else if (position < 0) {
     std::cout << "Position < 0" << std::endl;
@@ -132,7 +128,6 @@ void TLinkedList::Remove(size_t position) {
       next_erase = prev_erase->next;
       del = prev_erase->next;
       next_erase = del->next;
-      //delete del;
       prev_erase->next = next_erase;
     }
     size_of_list--;
@@ -145,21 +140,20 @@ void TLinkedList::Clear() {
     while(del->next != nullptr) {
       prev_del = del;
       del = del->next;
-      //delete prev_del;
     }
-    //delete del;
     size_of_list = 0;
+    //   std::cout << "HListItem deleted" << std::endl;
   } 
   size_of_list = 0;
   std::shared_ptr<HListItem>* front;
   std::shared_ptr<HListItem> back;
 }
-std::ostream& operator<<(std::ostream& os, TLinkedList& ol) {
-  if (ol.size_of_list == 0) {
-    os << "The octagon list is empty, so there is nothing to output" << std::endl;
+std::ostream& operator<<(std::ostream& os, TLinkedList& hl) {
+  if (hl.size_of_list == 0) {
+    os << "The Octagon list is empty, so there is nothing to output" << std::endl;
   } else {
     os << "Print Octagon List" << std::endl;
-    std::shared_ptr<HListItem> obj = ol.front;
+    std::shared_ptr<HListItem> obj = hl.front;
     while(obj != nullptr) {
       if (obj->next != nullptr) {
         os << obj->octagon << " " << "," << " ";
@@ -180,9 +174,7 @@ TLinkedList::~TLinkedList() {
     while(del->next != nullptr) {
       prev_del = del;
       del = del->next;
-      //delete prev_del;
     }
-    //delete del;
     size_of_list = 0;
     std::cout << "Octagon List deleted" << std::endl;
   } 
