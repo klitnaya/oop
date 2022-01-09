@@ -3,22 +3,21 @@
 
 #include "figure.h"
 
-class Octagon : public Figure{
+class Octagon : public Figure {
 public:
     Octagon();
-    Octagon(std::istream& is);
-    Octagon(Point point_a, Point point_b, Point point_c, Point point_d, Point point_e, Point point_f, Point point_g, Point point_h );
-    size_t VertexesNumber();
+    Octagon(std::istream &is);
+    Octagon(Point a, Point b, Point c, Point d, Point e, Point f, Point g, Point h);
     Octagon(Octagon &other);
     double Area();
-    //void Print(std::ostream& os);
+    size_t VertexesNumber();
     virtual ~Octagon();
     Octagon& operator=(const Octagon& other);
     Octagon& operator==(const Octagon& other);
-    friend std::ostream& operator<<(std::ostream& os, Octagon& p);
-
+    friend std::ostream& operator<<(std::ostream& os, Octagon& h);
 private:
-    Point point_a, point_b, point_c, point_d, point_e, point_f, point_g, point_h ;
+    Point a, b, c, d, e, f, g, h;
 };
+
 
 #endif // OCTAGON_H
