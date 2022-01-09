@@ -7,19 +7,16 @@ TLinkedList::TLinkedList() {
   HListItem* back;
   std::cout << "Octagon List created" << std::endl; 
 }
-
 TLinkedList::TLinkedList(const TLinkedList& other){
   front = other.front;
   back = other.back;
 }
-bool TLinkedList::Empty() {
-  return size_of_list;
-}
-
 size_t TLinkedList::Length() {
   return size_of_list;
 }
-
+bool TLinkedList::Empty() {
+  return size_of_list;
+}
 Octagon& TLinkedList::GetItem(size_t idx){
   int k = 0;
   HListItem* obj = front;
@@ -27,12 +24,12 @@ Octagon& TLinkedList::GetItem(size_t idx){
     k++;
     obj = obj->next;
   }
-  return obj->hexagon;
+  return obj->octagon;
 }
-HListItem& TLinkedList::First() {
+Octagon& TLinkedList::First() {
   return front->octagon;
 }
-HListItem& TLinkedList::Last() {
+Octagon& TLinkedList::Last() {
   return back->octagon;
 }
 void TLinkedList::InsertLast(const Octagon &&octagon) {
@@ -150,17 +147,18 @@ void TLinkedList::Clear() {
     }
     delete del;
     size_of_list = 0;
+    //   std::cout << "HListItem deleted" << std::endl;
   } 
   size_of_list = 0;
   HListItem* front;
   HListItem* back;
 }
-std::ostream& operator<<(std::ostream& os, TLinkedList& ol) {
+std::ostream& operator<<(std::ostream& os, TLinkedList& hl) {
   if (hl.size_of_list == 0) {
-    os << "The octagon list is empty, so there is nothing to output" << std::endl;
+    os << "The Octagon list is empty, so there is nothing to output" << std::endl;
   } else {
     os << "Print Octagon List" << std::endl;
-    HListItem* obj = ol.front;
+    HListItem* obj = hl.front;
     while(obj != nullptr) {
       if (obj->next != nullptr) {
         os << obj->octagon << " " << "," << " ";
