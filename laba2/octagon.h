@@ -14,10 +14,11 @@ public:
     virtual ~Octagon();
     Octagon& operator=(const Octagon& other);
     Octagon& operator==(const Octagon& other);
-    friend std::ostream& operator<<(std::ostream& os, Octagon& h);
+    friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<Octagon>& h);
 private:
     Point a, b, c, d, e, f, g, h;
 };
+
 
 
 #endif // OCTAGON_H
