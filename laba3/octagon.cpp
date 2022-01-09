@@ -33,7 +33,7 @@ Octagon& Octagon::operator = (const Octagon& other) {
   f = other.f;
   g = other.g;
   h = other.h;
-  //std::cout << "Hexagon copied" << std::endl;
+ 
   return *this;
 } 
 Octagon& Octagon::operator == (const Octagon& other) {
@@ -43,7 +43,7 @@ Octagon& Octagon::operator == (const Octagon& other) {
     std::cout << "Octagons are not equal" << std::endl;
   } 
 } 
-std::ostream& operator<<(std::ostream& os, Octagon& h) {
-  os << h.a << h.b << h.c << h.d << h.e << h.f << h.g <<h.h;
+std::ostream& operator<<(std::ostream& os, std::shared_ptr<Octagon>& h) {
+  os << h->a << h->b << h->c << h->d << h->e << h->f << h->g << h->h;
   return os;
 }
