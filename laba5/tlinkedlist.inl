@@ -27,7 +27,7 @@ template <class T> size_t TLinkedList<T>::Length() {
 template <class T> bool TLinkedList<T>::Empty() {
   return size_of_list;
 }
-template <class T> std::shared_ptr<Hexagon>& TLinkedList<T>::GetItem(size_t idx){
+template <class T> std::shared_ptr<Octagon>& TLinkedList<T>::GetItem(size_t idx){
   int k = 0;
   std::shared_ptr<HListItem<T>> obj = front;
   while (k != idx){
@@ -39,7 +39,7 @@ template <class T> std::shared_ptr<Hexagon>& TLinkedList<T>::GetItem(size_t idx)
 template <class T> std::shared_ptr<T>& TLinkedList<T>::First() {
     return front->GetValue();
 }
-template <class T> std::shared_ptr<Hexagon>& TLinkedList<T>::Last() {
+template <class T> std::shared_ptr<Octagon>& TLinkedList<T>::Last() {
   return back->GetValue();
 }
 template <class T> void TLinkedList<T>::InsertLast(const std::shared_ptr<Octagon> &&octagon) {
