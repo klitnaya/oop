@@ -1,6 +1,6 @@
 #ifndef FIGURE_H
 #define FIGURE_H
-
+#include<iostream>
 #include "point.h"
 
 class Figure {
