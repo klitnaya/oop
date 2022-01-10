@@ -20,7 +20,7 @@ int main () {
     TLinkedList list;
     std:: cout << "Is list empty? " << list.Empty() << std:: endl;
     list.InsertFirst(a);
-    std:: cout << "And now, is tree empty? " << list.Empty() << std:: endl;
+    std:: cout << "And now, is list empty? " << list.Empty() << std:: endl;
     list.InsertLast(b);
     list.InsertLast(c);
     std:: cout << "The length of your list is: " << list.Length() << std:: endl;
