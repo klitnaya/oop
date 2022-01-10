@@ -11,6 +11,10 @@ public:
   ~HListItem();
   std::shared_ptr<T> octagon;
   std::shared_ptr<HListItem<T>> next;
+  std::shared_ptr<HListItem<T>> SetNext(std::shared_ptr<HListItem<T>> &next_);
+  std::shared_ptr<HListItem<T>> GetNext();
+  std::shared_ptr<T>& GetValue();
 };
-#include "HListItem.cpp"
+
+#include "HListItem.inl"
 #endif
