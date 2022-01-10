@@ -1,10 +1,20 @@
 #include <iostream>
 #include "TLinkedList.h"
  
+template <class T>
+Titerator<HListItem<T>, T> TLinkedList<T>::begin() {
+  return Titerator<HListItem<T>, T> (front);
+}
+
+template <class T>
+Titerator<HListItem<T>, T> TLinkedList<T>::end() {
+  return Titerator<HListItem<T>, T>(back);
+}
+
 template <class T> TLinkedList<T>::TLinkedList() {
   size_of_list = 0;
-  std::shared_ptr<HListItem<T>> front;
-  std::shared_ptr<HListItem<T>> back;
+  std::shared_ptr<HListItem<T>> front = nullptr;
+  std::shared_ptr<HListItem<T>> back = nullptr;
   std::cout << "Octagon List created" << std::endl; 
 }
 template <class T> TLinkedList<T>::TLinkedList(const std::shared_ptr<TLinkedList> &other){
@@ -22,27 +32,28 @@ template <class T> std::shared_ptr<Octagon>& TLinkedList<T>::GetItem(size_t idx)
   std::shared_ptr<HListItem<T>> obj = front;
   while (k != idx){
     k++;
-    obj = obj->next;
+    obj = obj->GetNext();
   }
-  return obj->octagon;
+  return obj->GetValue();
 }
-template <class T> std::shared_ptr<Octagon>& TLinkedList<T>::First() {
-  return front->octagon;
+template <class T> std::shared_ptr<T>& TLinkedList<T>::First() {
+    return front->GetValue();
 }
 template <class T> std::shared_ptr<Octagon>& TLinkedList<T>::Last() {
-  return back->octagon;
+  return back->GetValue();
 }
 template <class T> void TLinkedList<T>::InsertLast(const std::shared_ptr<Octagon> &&octagon) {
   std::shared_ptr<HListItem<T>> obj (new HListItem<T>(octagon));
+ // std::shared_ptr<HListItem<T>> obj = std::make_shared<HListItem<T>>(HListItem<T>(hexagon));
   if(size_of_list == 0) {
     front = obj;
     back = obj;
     size_of_list++;
     return;
   }
-  back->next = obj;
+  back->SetNext(obj); // = obj;
   back = obj;
-  obj->next = nullptr;
+  obj->next = nullptr; // = nullptr;
   size_of_list++;
 }
 template <class T> void TLinkedList<T>::RemoveLast() {
@@ -55,8 +66,8 @@ template <class T> void TLinkedList<T>::RemoveLast() {
       return;
     }
     std::shared_ptr<HListItem<T>> prev_del = front;
-    while (prev_del->next != back) {
-      prev_del = prev_del->next;
+    while (prev_del->GetNext() != back) {
+      prev_del = prev_del->GetNext();
     }
     prev_del->next = nullptr;
     back = prev_del;
@@ -69,7 +80,7 @@ template <class T> void TLinkedList<T>::InsertFirst(const std::shared_ptr<Octago
       front = obj;
       back = obj;
     } else {
-      obj->next = front;
+      obj->SetNext(front); // = front;
       front = obj;
     }
     size_of_list++;
@@ -79,11 +90,11 @@ template <class T> void TLinkedList<T>::RemoveFirst() {
       std::cout << "Octagon does not pop_front, because the Octagon List is empty" << std:: endl;
     } else {
     std::shared_ptr<HListItem<T>> del = front;
-    front = del->next;
+    front = del->GetNext();
     size_of_list--;
     }
 }
-template <class T> void TLinkedList<T>::Insert(const std::shared_ptr<Octagon> &&octagon, size_t position) {
+template <class T> void TLinkedList<T>::Insert(const std::shared_ptr<Octagon> &&octagon,size_t position) {
   if (position <0) {
     std::cout << "Position < zero" << std::endl;
   } else if (position > size_of_list) {
@@ -99,11 +110,11 @@ template <class T> void TLinkedList<T>::Insert(const std::shared_ptr<Octagon> &&
       std::shared_ptr<HListItem<T>> next_insert;
       while(k+1 != position) {
         k++;
-        prev_insert = prev_insert->next;
+        prev_insert = prev_insert->GetNext();
       }
-      next_insert = prev_insert->next;
-      prev_insert->next = obj;
-      obj->next = next_insert;
+      next_insert = prev_insert->GetNext();
+      prev_insert->SetNext(obj); // = obj;
+      obj->SetNext(next_insert); // = next_insert;
     }
     size_of_list++;
   }
@@ -120,15 +131,15 @@ template <class T> void TLinkedList<T>::Remove(size_t position) {
       int k = 0;
       std::shared_ptr<HListItem<T>> prev_erase = front;
       std::shared_ptr<HListItem<T>> next_erase;
-      std::shared_ptr<HListItem<T>> del;F
+      std::shared_ptr<HListItem<T>> del;
       while( k+1 != position) {
         k++;
-        prev_erase = prev_erase->next;
+        prev_erase = prev_erase->GetNext();
       }
-      next_erase = prev_erase->next;
-      del = prev_erase->next;
-      next_erase = del->next;
-      prev_erase->next = next_erase;
+      next_erase = prev_erase->GetNext();
+      del = prev_erase->GetNext();
+      next_erase = del->GetNext();
+      prev_erase->SetNext(next_erase); // = next_erase;
     }
     size_of_list--;
   }
@@ -137,9 +148,9 @@ template <class T> void TLinkedList<T>::Clear() {
   std::shared_ptr<HListItem<T>> del = front;
   std::shared_ptr<HListItem<T>> prev_del;
   if(size_of_list !=0 ) {
-    while(del->next != nullptr) {
+    while(del->GetNext() != nullptr) {
       prev_del = del;
-      del = del->next;
+      del = del->GetNext();
     }
     size_of_list = 0;
     //   std::cout << "HListItem deleted" << std::endl;
@@ -152,15 +163,15 @@ template <class T> std::ostream& operator<<(std::ostream& os, TLinkedList<T>& hl
   if (hl.size_of_list == 0) {
     os << "The octagon list is empty, so there is nothing to output" << std::endl;
   } else {
-    os << "Print Octgon List" << std::endl;
+    os << "Print Octagon List" << std::endl;
     std::shared_ptr<HListItem<T>> obj = hl.front;
     while(obj != nullptr) {
-      if (obj->next != nullptr) {
-        os << obj->octagon << " " << "," << " ";
-        obj = obj->next;
+      if (obj->GetNext() != nullptr) {
+        os << obj->GetValue() << " " << "," << " ";
+        obj = obj->GetNext();
       } else {
-        os << obj->octagon;
-        obj = obj->next;
+        os << obj->GetValue();
+        obj = obj->GetNext();
       }
     }
     os << std::endl;
@@ -171,11 +182,11 @@ template <class T> TLinkedList<T>::~TLinkedList() {
   std::shared_ptr<HListItem<T>> del = front;
   std::shared_ptr<HListItem<T>> prev_del;
   if(size_of_list !=0 ) {
-    while(del->next != nullptr) {
+    while(del->GetNext() != nullptr) {
       prev_del = del;
-      del = del->next;
+      del = del->GetNext();
     }
     size_of_list = 0;
-    std::cout << "Octagon List deleted" << std::endl;
+    std::cout << "octagon List deleted" << std::endl;
   } 
 }
