@@ -1,5 +1,4 @@
 #include <iostream>
-#include "octagon.h"
 #include "tlinked_list.h"
 
 int main() {

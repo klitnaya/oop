@@ -20,6 +20,4 @@ private:
     Point a, b, c, d, e, f, g, h;
 };
 
-
-
 #endif // OCTAGON_H

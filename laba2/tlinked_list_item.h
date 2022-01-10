@@ -9,4 +9,3 @@ public:
   Octagon octagon;
   HListItem* next;
 };
-

@@ -1,6 +1,5 @@
-#include "tlinked_list_item.h"
-#include "octagon.h"
 #include <iostream>
+#include "tlinked_list_item.h"
 
 HListItem::HListItem(const Octagon &octagon) {
   this->octagon = octagon;
@@ -12,5 +11,4 @@ std::ostream& operator<<(std::ostream& os,HListItem& obj) {
 }
 HListItem::~HListItem() {
 }
-
 

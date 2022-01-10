@@ -1,5 +1,6 @@
-#ifdef TLINKED_LIST_H
-#define TLINKED_LIST_H
+#define HLIST_H
+#ifdef HLIST_H
+
 #include <iostream>
 #include "tlinked_list_item.h"
 #include "octagon.h"
@@ -28,4 +29,4 @@ private:
   HListItem *back;
 };
 
-#endif //TLINKED_LIST_H
+#endif //HList_H

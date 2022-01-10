@@ -1,6 +1,10 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 class Point {
 public:
   Point();
