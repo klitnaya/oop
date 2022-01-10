@@ -1,3 +1,4 @@
+#include<iostream>
 #include "octagon.h"
 #include <cmath>
 
