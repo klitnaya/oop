@@ -10,9 +10,9 @@ public:
   TLinkedList();
   int size_of_list;
   size_t Length();
-  std::shared_ptr<Pentagon>& First();
-  std::shared_ptr<Pentagon>& Last();
-  std::shared_ptr<Pentagon>& GetItem(size_t idx);
+  std::shared_ptr<T>& First();
+  std::shared_ptr<Octagon>& Last();
+  std::shared_ptr<Octagon>& GetItem(size_t idx);
   bool Empty();
   TLinkedList(const std::shared_ptr<TLinkedList> &other);
   void InsertFirst(const std::shared_ptr<Octagon> &&octagon);
@@ -23,10 +23,13 @@ public:
   void Remove(size_t position);
   void Clear();
   template <class A> friend std::ostream& operator<<(std::ostream& os, TLinkedList<A>& list);
-  ~TLinkedList(); 
+  ~TLinkedList();
+  Titerator<HListItem<T>, T> begin();
+  Titerator<HListItem<T>, T> end();  
 private:
   std::shared_ptr<HListItem<T>> front;
   std::shared_ptr<HListItem<T>> back;
 };
+
 #include "TLinkedList.cpp"
 #endif 
