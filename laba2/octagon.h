@@ -1,6 +1,6 @@
 #ifndef OCTAGON_H
 #define OCTAGON_H
-
+#include <iostream>
 #include "figure.h"
 
 class Octagon : public Figure {
