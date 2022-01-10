@@ -1,56 +1,42 @@
+#include <iostream>
 #include "octagon.h"
 #include <cmath>
 
-Octagon::Octagon(): point_a(0,0), point_b(0,0), point_c(0,0), point_d(0,0), point_e(0,0), point_f(0,0), point_g(0,0), point_h(0,0){
+Octagon::Octagon(): a(0,0),b(0,0),c(0,0),d(0,0),e(0,0),f(0,0), g(0,0), h(0,0) {
+} 
+Octagon::Octagon(std::istream &is) {
+    is >> a; 
+    is >> b;
+    is >> c;
+    is >> d;
+    is >> e;
+    is >> f;
 }
-
-Octagon::Octagon(std::istream& is) {
-    std::cout << "Enter the octagon's vertexes:" << std::endl;
-    is >> point_a;
-    is >> point_b;
-    is >> point_c;
-    is >> point_d;
-    is >> point_e;
-    is >> point_f;
-    is >> point_g;
-    is >> point_h;
- //   std::cout << "The octagon is created" << std::endl;
+Octagon::Octagon(Point a1, Point b1,Point c1, Point d1, Point e1, Point f1, Point g1, Point h1): a(a1),b(b1),c(c1),d(d1),e(e1),f(f1), g(g1),h(h1) {
 }
-
-Octagon::Octagon(Point point_a1, Point point_b1,Point point_c1, Point point_d1, Point point_e1, Point point_f1, Point point_g1, Point point_h1 ): point_a(point_a1),point_b(point_b1),point_c(point_c1),point_d(point_d1),point_e(point_e1),point_f(point_f1), point_g(point_g1),point_h(point_h1) {
+double Octagon::Area() {
+    return 0.5*abs(a.x() * b.y() + b.x() * c.y() + c.x() *d.y() + d.x() * e.y() +e.x() * f.y() + f.x() * g.y() + g.x() * h.y() + h.x() * a.y() - b.x() * a.y() -c.x() * b.y() - d.x() * c.y() - e.x() * d.y() - f.x() * e.y() - g.x() * f.y() - h.x() * g.y() - a.x() * h.y());
 }
-
-
-/*void Octagon::Print(std::ostream& os) {
-    std::cout << "Octagon: ";
-    std::cout << point_a << ", ";
-    std::cout << point_b << ", ";
-    std::cout << point_c << ", ";
-    std::cout << point_d << ", ";
-    std::cout << point_e << ", ";
-    std::cout << point_f << ", ";
-    std::cout << point_g << ", ";
-    std::cout << point_h << std::endl;
+Octagon::~Octagon() {
 }
-*/
 size_t Octagon::VertexesNumber() {
-    size_t number = 8;
-    return number;
+    return 8;
 }
-
+Octagon::Octagon(Octagon& other):Octagon(other.a,other.b,other.c,other.d,other.e,other.f, other.g, other.h) {
+} 
 Octagon& Octagon::operator = (const Octagon& other) {
   if (this == &other) return *this;
-  point_a = other.point_a;
-  point_b = other.point_b;
-  point_c = other.point_c;
-  point_d = other.point_d;
-  point_e = other.point_e;
-  point_f = other.point_f;
-  point_g = other.point_g;
-  point_h = other.point_h;
+  a = other.a;
+  b = other.b;
+  c = other.c;
+  d = other.d;
+  e = other.e;
+  f = other.f;
+  g = other.g;
+  h = other.h;
+ 
   return *this;
 } 
-
 Octagon& Octagon::operator == (const Octagon& other) {
   if (this == &other){
     std::cout << "Octagons are equal" << std::endl;
@@ -58,18 +44,7 @@ Octagon& Octagon::operator == (const Octagon& other) {
     std::cout << "Octagons are not equal" << std::endl;
   } 
 } 
-
-double Octagon::Area() {
-   double q = abs(point_a.X() * point_b.Y() + point_b.X() * point_c.Y() + poiny_c.X() * point_d.Y() + point_d.X() * point_e.Y() + point_e.X() * point_f.Y() + point_f.X() * point_g.Y() + point_g.X() * point_h.Y() + point_h.X() * point_a.Y() - point_b.X() * point_a.Y() - point_c.X() * point_b.Y() - point_d.X() * point_c.Y() - point_e.X() * point_d.Y() - point_f.X() * point_e.Y() - point_g.X() * point_f.Y() - point_h.X() * point_g.Y() - point_a.X() * point_h.Y());
-   double s = q / 2;
-   return s;
-
-}
-
-Octagon::~Octagon() {
-}
-
-std::ostream& operator<<(std::ostream& os, Octagon& p) {
-  os << p.point_a << p.point_b << p.point_c << p.point_d << p.point_e << p.point_f<<p.point_g<<p.point_h;
+std::ostream& operator<<(std::ostream& os, std::shared_ptr<Octagon>& h) {
+  os << h->a << h->b << h->c << h->d << h->e << h->f << h->g << h->h;
   return os;
 }
