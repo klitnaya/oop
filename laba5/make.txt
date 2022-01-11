@@ -1,0 +1,1 @@
+>g++ point.cpp octagon.cpp main.cpp -o lab5
