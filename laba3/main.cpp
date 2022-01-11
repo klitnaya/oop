@@ -1,8 +1,6 @@
 #include <iostream>
 #include "tlinked_list.h"
 
-#include "octagon.h"
-
 int main() {
   TLinkedList tlinkedlist;
   tlinkedlist.Empty();

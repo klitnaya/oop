@@ -1,6 +1,6 @@
 #include<iostream>
+#include <memory>
 #include "octagon.h"
-#include<memery>
 
 class HListItem {
 public:
@@ -10,4 +10,3 @@ public:
   std::shared_ptr<Octagon> octagon;
   std::shared_ptr<HListItem> next;
 };
-

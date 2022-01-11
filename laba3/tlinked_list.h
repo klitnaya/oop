@@ -1,8 +1,10 @@
-#ifdef TLINKED_LIST_H
-#define TLINKED_LIST_H
+#define HLIST_H
+#ifdef HLIST_H
+
 #include <iostream>
+#include <memory>
 #include "tlinked_list_item.h"
-#include"octagon.h"
+#include "octagon.h"
 
 class TLinkedList {
 public:
@@ -27,4 +29,6 @@ private:
   std::shared_ptr<HListItem> front;
   std::shared_ptr<HListItem> back;
 };
-#endif //TLINKED_LIST_H
+
+
+#endif //HList_H
