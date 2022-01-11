@@ -1,9 +1,9 @@
 #ifndef OCTAGON_H
 #define OCTAGON_H
 #include <iostream>
+#include <memory>
 #include "figure.h"
 #include "point.h"
-#include <memory>
 
 class Octagon : public Figure {
 public:
@@ -20,5 +20,4 @@ public:
 private:
     Point a, b, c, d, e, f, g, h;
 };
-
 #endif // OCTAGON_H

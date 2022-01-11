@@ -1,6 +1,6 @@
 #include <memory>
-#ifndef INC_5_LAB__TITERATOR_H_
-#define INC_5_LAB__TITERATOR_H_
+#ifndef INC_5_LABA__TITERATOR_H_
+#define INC_5_LABA__TITERATOR_H_
 template <class node, class T> class Titerator {
 public:
   Titerator(std::shared_ptr<node> n) { node_ptr = n; }
@@ -19,4 +19,4 @@ private:
   std::shared_ptr<node> node_ptr;
 };
 
-#endif // INC_5_LAB__TITERATOR_H_
+#endif // INC_5_LABA__TITERATOR_H_

@@ -3,6 +3,7 @@
 #include <iostream>
 #include "HListItem.h"
 #include "octagon.h"
+#include "titerator.h"
 #include <memory>
 
 template <class T> class TLinkedList {

@@ -15,6 +15,5 @@ public:
   std::shared_ptr<HListItem<T>> GetNext();
   std::shared_ptr<T>& GetValue();
 };
-
-#include "HListItem.inl"
-#endif
+#include "hlist_item.inl"
+#endif //HLISTITEM_H
